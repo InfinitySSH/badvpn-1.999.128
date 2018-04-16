@@ -540,7 +540,6 @@ int BListener_InitUnix (BListener *o, const char *socket_path, BReactor *reactor
     
     // init fd
     if ((o->fd = socket(AF_UNIX, SOCK_STREAM, 0)) < 0) {
-        BLog(BLOG_ERROR, "socket failed");
         goto fail1;
     }
     
@@ -650,7 +649,6 @@ int BConnector_Init (BConnector *o, BAddr addr, BReactor *reactor, void *user,
     
     // init fd
     if ((o->fd = socket(sysaddr.addr.generic.sa_family, SOCK_STREAM, 0)) < 0) {
-        BLog(BLOG_ERROR, "socket failed");
         goto fail1;
     }
     
@@ -729,7 +727,6 @@ int BConnector_InitUnix (BConnector *o, const char *socket_path, BReactor *react
     
     // init fd
     if ((o->fd = socket(AF_UNIX, SOCK_STREAM, 0)) < 0) {
-        BLog(BLOG_ERROR, "socket failed");
         goto fail1;
     }
     

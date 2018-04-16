@@ -332,7 +332,6 @@ int NCDInterfaceMonitor_Init (NCDInterfaceMonitor *o, int ifindex, int watch_eve
     
     // init event netlink fd
     if ((o->event_netlink_fd = socket(AF_NETLINK, SOCK_DGRAM, NETLINK_ROUTE)) < 0) {
-        BLog(BLOG_ERROR, "socket failed");
         goto fail1;
     }
     if (!badvpn_set_nonblocking(o->event_netlink_fd)) {
