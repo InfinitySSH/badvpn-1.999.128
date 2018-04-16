@@ -382,7 +382,6 @@ static void connection_connector_handler (void *user, int is_error)
     
     // init connection
     if (!BConnection_Init(&o->connection, BConnection_source_connector(&o->connect.connector), o->connect.i->params->iparams->reactor, o, connection_connection_handler)) {
-        connection_log(o, BLOG_ERROR, "BConnection_Init failed");
         goto fail;
     }
     

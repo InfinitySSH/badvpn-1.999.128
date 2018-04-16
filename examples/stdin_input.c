@@ -102,13 +102,11 @@ int main ()
     sigaddset(&set, SIGINT);
     sigaddset(&set, SIGTERM);
     if (!BUnixSignal_Init(&usignal, &reactor, set, signal_handler, NULL)) {
-        fprintf(stderr, "BUnixSignal_Init failed\n");
         goto fail2;
     }
     
     // init BConnection object backed by the stdin fd
     if (!BConnection_Init(&pipe_con, BConnection_source_pipe(0), &reactor, NULL, connection_handler)) {
-        fprintf(stderr, "BConnection_Init failed\n");
         goto fail3;
     }
     

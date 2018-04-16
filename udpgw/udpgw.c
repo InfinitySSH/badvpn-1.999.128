@@ -639,7 +639,6 @@ void listener_handler (BListener *listener)
     
     // accept client
     if (!BConnection_Init(&client->con, BConnection_source_listener(listener, &client->addr), &ss, client, (BConnection_handler)client_connection_handler)) {
-        BLog(BLOG_ERROR, "BConnection_Init failed");
         goto fail1;
     }
     
@@ -789,7 +788,6 @@ void client_connection_handler (struct client *client, int event)
     if (event == BCONNECTION_EVENT_RECVCLOSED) {
         client_log(client, BLOG_INFO, "client closed");
     } else {
-        client_log(client, BLOG_INFO, "client error");
     }
     
     // free client
@@ -1030,7 +1028,6 @@ void connection_init (struct client *client, uint16_t conid, BAddr addr, BAddr o
     
     // init UDP dgram
     if (!BDatagram_Init(&con->udp_dgram, addr.type, &ss, con, (BDatagram_handler)connection_dgram_handler_event)) {
-        client_log(client, BLOG_ERROR, "BDatagram_Init failed");
         goto fail2;
     }
     

@@ -168,7 +168,6 @@ static void listener_default_job_handler (BListener *o)
     // accept
     int newfd = accept(o->fd, NULL, NULL);
     if (newfd < 0) {
-        BLog(BLOG_ERROR, "accept failed");
         return;
     }
     
@@ -847,7 +846,6 @@ int BConnection_Init (BConnection *o, struct BConnection_source source, BReactor
             struct sys_addr sysaddr;
             sysaddr.len = sizeof(sysaddr.addr);
             if ((o->fd = accept(listener->fd, &sysaddr.addr.generic, &sysaddr.len)) < 0) {
-                BLog(BLOG_ERROR, "accept failed");
                 goto fail0;
             }
             o->close_fd = 1;

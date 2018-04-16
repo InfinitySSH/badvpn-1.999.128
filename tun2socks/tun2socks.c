@@ -1471,7 +1471,6 @@ void client_err_func (void *arg, err_t err)
     struct tcp_client *client = (struct tcp_client *)arg;
     ASSERT(!client->client_closed)
     
-    client_log(client, BLOG_INFO, "client error (%d)", (int)err);
     
     // the pcb was taken care of by the caller
     client_handle_freed_client(client);

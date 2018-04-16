@@ -94,7 +94,6 @@ void connector_handler (StreamPeerIO *pio, int is_error)
     
     // init connection
     if (!BConnection_Init(&pio->connect.sock.con, BConnection_source_connector(&pio->connect.connector), pio->reactor, pio, (BConnection_handler)connection_handler)) {
-        PeerLog(pio, BLOG_ERROR, "BConnection_Init failed");
         goto fail0;
     }
     

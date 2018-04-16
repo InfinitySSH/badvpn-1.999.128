@@ -171,7 +171,6 @@ static const char *strings[] = {
 
 static void client_handler_error (struct instance *o)
 {
-    ModuleLog(o->i, BLOG_ERROR, "client error");
     
     // free instance
     instance_free(o, 1);

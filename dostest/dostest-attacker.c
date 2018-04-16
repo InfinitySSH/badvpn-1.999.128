@@ -434,7 +434,6 @@ void connection_connector_handler (struct connection *conn, int is_error)
     
     // init connection from connector
     if (!BConnection_Init(&conn->con, BConnection_source_connector(&conn->connector), &reactor, conn, (BConnection_handler)connection_connection_handler)) {
-        connection_log(conn, BLOG_INFO, "BConnection_Init failed");
         goto fail0;
     }
     

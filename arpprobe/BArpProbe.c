@@ -279,7 +279,6 @@ int BArpProbe_Init (BArpProbe *o, const char *ifname, uint32_t addr, BReactor *r
     
     // init dgram
     if (!BDatagram_Init(&o->dgram, BADDR_TYPE_PACKET, o->reactor, o, (BDatagram_handler)dgram_handler)) {
-        BLog(BLOG_ERROR, "BDatagram_Init failed");
         goto fail0;
     }
     
@@ -287,7 +286,6 @@ int BArpProbe_Init (BArpProbe *o, const char *ifname, uint32_t addr, BReactor *r
     BAddr bind_addr;
     BAddr_InitPacket(&bind_addr, hton16(ETHERTYPE_ARP), if_index, BADDR_PACKET_HEADER_TYPE_ETHERNET, BADDR_PACKET_PACKET_TYPE_HOST, if_mac);
     if (!BDatagram_Bind(&o->dgram, bind_addr)) {
-        BLog(BLOG_ERROR, "BDatagram_Bind failed");
         goto fail1;
     }
     

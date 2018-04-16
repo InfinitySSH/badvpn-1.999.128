@@ -758,7 +758,6 @@ static void read_pipe_func_new (void *vo, NCDModuleInst *i, const struct NCDModu
     
     // init connection
     if (!BConnection_Init(&o->connection, BConnection_source_pipe(pinst->read_fd), i->params->iparams->reactor, o, read_pipe_connection_handler)) {
-        ModuleLog(i, BLOG_ERROR, "BConnection_Init failed");
         goto fail0;
     }
     

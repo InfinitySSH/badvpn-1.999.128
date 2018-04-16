@@ -152,7 +152,6 @@ int BDHCPClient_Init (BDHCPClient *o, const char *ifname, struct BDHCPClient_opt
     
     // init dgram
     if (!BDatagram_Init(&o->dgram, BADDR_TYPE_PACKET, o->reactor, o, (BDatagram_handler)dgram_handler)) {
-        BLog(BLOG_ERROR, "BDatagram_Init failed");
         goto fail0;
     }
     

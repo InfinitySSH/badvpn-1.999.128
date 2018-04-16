@@ -306,7 +306,6 @@ int DatagramPeerIO_Connect (DatagramPeerIO *o, BAddr addr)
     
     // init dgram
     if (!BDatagram_Init(&o->dgram, addr.type, o->reactor, o, (BDatagram_handler)dgram_handler)) {
-        PeerLog(o, BLOG_ERROR, "BDatagram_Init failed");
         goto fail0;
     }
     
@@ -337,13 +336,11 @@ int DatagramPeerIO_Bind (DatagramPeerIO *o, BAddr addr)
     
     // init dgram
     if (!BDatagram_Init(&o->dgram, addr.type, o->reactor, o, (BDatagram_handler)dgram_handler)) {
-        PeerLog(o, BLOG_ERROR, "BDatagram_Init failed");
         goto fail0;
     }
     
     // bind dgram
     if (!BDatagram_Bind(&o->dgram, addr)) {
-        PeerLog(o, BLOG_INFO, "BDatagram_Bind failed");
         goto fail1;
     }
     

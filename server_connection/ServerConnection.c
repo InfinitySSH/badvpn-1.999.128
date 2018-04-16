@@ -80,7 +80,6 @@ void connector_handler (ServerConnection *o, int is_error)
     
     // init connection
     if (!BConnection_Init(&o->con, BConnection_source_connector(&o->connector), o->reactor, o, (BConnection_handler)connection_handler)) {
-        BLog(BLOG_ERROR, "BConnection_Init failed");
         goto fail0;
     }
     

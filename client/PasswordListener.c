@@ -111,7 +111,6 @@ void listener_handler (PasswordListener *l)
     
     // accept connection
     if (!BConnection_Init(&client->sock->con, BConnection_source_listener(&l->listener, NULL), l->bsys, client, (BConnection_handler)client_connection_handler)) {
-        BLog(BLOG_ERROR, "BConnection_Init failed");
         goto fail1;
     }
     

@@ -424,7 +424,6 @@ void listener_handler (void *unused)
     
     // accept client
     if (!BConnection_Init(&client->con, BConnection_source_listener(&listener, &client->addr), &ss, client, (BConnection_handler)client_connection_handler)) {
-        BLog(BLOG_ERROR, "BConnection_Init failed");
         goto fail1;
     }
     

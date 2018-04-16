@@ -106,7 +106,6 @@ int BInputProcess_Init (BInputProcess *o, BReactor *reactor, BProcessManager *ma
     
     // init pipe connection
     if (!BConnection_Init(&o->pipe_con, BConnection_source_pipe(pipefds[0]), o->reactor, o, (BConnection_handler)connection_handler)) {
-        BLog(BLOG_ERROR, "BConnection_Init failed");
         goto fail1;
     }
     

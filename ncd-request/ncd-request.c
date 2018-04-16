@@ -146,7 +146,6 @@ static int make_connect_addr (const char *str, struct BConnection_addr *out_addr
 
 static void client_handler_error (void *user)
 {
-    BLog(BLOG_ERROR, "client error");
     
     BReactor_Quit(&reactor, 1);
 }
