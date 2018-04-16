@@ -405,7 +405,6 @@ fail0:
             // open dummy socket for ioctls
             int sock = socket(AF_INET, SOCK_DGRAM, 0);
             if (sock < 0) {
-                BLog(BLOG_ERROR, "socket failed");
                 goto fail1;
             }
             

@@ -463,7 +463,6 @@ int BListener_Init (BListener *o, BAddr addr, BReactor *reactor, void *user,
     
     // init fd
     if ((o->fd = socket(sysaddr.addr.generic.sa_family, SOCK_STREAM, 0)) < 0) {
-        BLog(BLOG_ERROR, "socket failed");
         goto fail0;
     }
     

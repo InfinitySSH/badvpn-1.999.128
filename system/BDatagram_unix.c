@@ -600,7 +600,6 @@ int BDatagram_Init (BDatagram *o, int family, BReactor *reactor, void *user,
     
     // init fd
     if ((o->fd = socket(family_socket_to_sys(family), SOCK_DGRAM, 0)) < 0) {
-        BLog(BLOG_ERROR, "socket failed");
         goto fail0;
     }
     

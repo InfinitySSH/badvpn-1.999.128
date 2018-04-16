@@ -83,7 +83,6 @@ int NCDIfConfig_query (const char *ifname)
     
     int s = socket(AF_INET, SOCK_DGRAM, 0);
     if (!s) {
-        BLog(BLOG_ERROR, "socket failed");
         goto fail0;
     }
     
